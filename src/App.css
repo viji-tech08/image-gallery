@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+
+body {
+    background-color: #f5f7f5;
+    color: #26372d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Heading */
+
+.gallery-heading {
+    text-align: center;
+    padding: 50px 20px 35px;
+    animation: fadeUp 1s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gallery-heading h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.gallery-heading p {
+    color: #777;
+    font-size: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Gallery Grid */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px 8% 60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Image Card */
+
+.image-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease;
+    animation: fadeUp 1s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-8px);
+}
+
+.image-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Animation */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 15px 20px 40px;
+    }
+
+    .gallery-heading h1 {
+        font-size: 30px;
+    }
 }
